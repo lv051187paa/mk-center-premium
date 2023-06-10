@@ -15,14 +15,24 @@ a {
 }
 
 .section-title {
-  background: linear-gradient(0deg, #BFA172, #BFA172), radial-gradient(43.75% 195.5% at 3.31% 26.25%, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(88.51deg, #586164 0.51%, #9EA1A2 14.25%, #848989 49.87%, #576166 55.97%, #757A7C 75.93%, #576166 98.74%);
+  font-family: 'Playfair Display', 'Arial', sans-serif;
+  font-weight: 500;
+  font-size: 59px;
+  text-align: center;
+}
+
+.section-title__gradient {
+  background: linear-gradient(0deg, #BFA172, #BFA172),
+  radial-gradient(43.75% 195.5% at 3.31% 26.25%, rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+  linear-gradient(88.51deg, #586164 0.51%, #9EA1A2 14.25%, #848989 49.87%, #576166 55.97%, #757A7C 75.93%, #576166 98.74%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-blend-mode: color, difference, normal;
-  font-family: 'Playfair Display', 'Arial', sans-serif;
-  font-weight: 500;
-  font-size: 60px;
-  text-align: center;
+}
+
+.setion-title__black {
+  color: #1E1E1E;
 }
 
 .action-link {
@@ -67,7 +77,8 @@ a {
   height: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(116.18deg, #E9E9E9 -0.57%, rgba(233, 233, 233, 0) 66.48%), linear-gradient(90.64deg, #E9E9E9 0.46%, rgba(233, 233, 233, 0) 99.39%);
+  background: linear-gradient(116.18deg, #E9E9E9 -0.57%, rgba(233, 233, 233, 0) 66.48%),
+  linear-gradient(90.64deg, #E9E9E9 0.46%, rgba(233, 233, 233, 0) 99.39%);
 }
 
 .header-slider img {
@@ -170,4 +181,32 @@ a {
 
 .description-video-list {
   margin-top: 70px;
+}
+
+/* CEO */
+.ceo {
+  padding: 100px 0 115px;
+  background: url("images/ceo/bg_ceo.png");
+  position: relative;
+}
+
+.ceo .section-title {
+  text-align: left;
+  position: absolute;
+  margin: 0;
+  right: 0;
+  top: 40px;
+  z-index: 999;
+}
+
+.ceo-photo {
+  max-width: 525px;
+}
+
+.ceo-photo img {
+  width: 100%;
+}
+
+.ceo-content {
+  padding-top: 80px;
 }
