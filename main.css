@@ -5,9 +5,16 @@ body {
   font-family: 'Roboto Slab', 'Arial', sans-serif;
 }
 
-p {
+p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
+  /*color: #E9E9E9;*/
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 a {
@@ -186,8 +193,16 @@ a {
 /* CEO */
 .ceo {
   padding: 100px 0 115px;
-  background: url("images/ceo/bg_ceo.png");
+  /*background: url("images/ceo/bg_ceo.png");*/
+  background-color: #E9E9E9;
   position: relative;
+}
+
+.ceo-name-bg {
+  position: absolute;
+  right: 0;
+  top: -100px;
+  z-index: 99;
 }
 
 .ceo .section-title {
@@ -209,4 +224,74 @@ a {
 
 .ceo-content {
   padding-top: 80px;
+}
+
+/* Offers */
+
+.offers {
+  padding: 160px 0 50px;
+}
+
+.offers-list {
+  margin-top: 70px;
+}
+
+.offers-list-item {
+  border: 2px solid #BFA172;
+  padding: 50px 30px;
+  color: #E9E9E9;
+  max-width: 550px;
+}
+
+.offers-list-item-title {
+  font-size: 25px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.offers-list-item-description {
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.offers-list-item-content {
+  margin-top: 30px;
+}
+
+.offers-list-item-content li {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.offers-list-item-content li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(191, 161, 114, 0.15);
+  left: 0;
+  bottom: -5px;
+}
+
+.offers-list-item-content li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.offers-list-item-customization {
+  text-align: center;
+  margin-top: 35px;
+  font-size: 16px;
+}
+
+.offers-list-item-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.offers-list-item-action {
+  padding: 15px 20px;
+  width: 200px;
 }
