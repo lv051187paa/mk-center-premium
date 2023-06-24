@@ -21,10 +21,14 @@ a {
   text-decoration: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
 .section-title {
   font-family: 'Playfair Display', 'Arial', sans-serif;
   font-weight: 500;
-  font-size: 59px;
+  font-size: 36px;
   text-align: center;
 }
 
@@ -75,6 +79,16 @@ a {
 
 .menu {
   background: #101010;
+  display: none;
+}
+
+.menu-logo {
+  height: 50px;
+}
+
+.menu-logo img {
+  height: 100%;
+  max-width: 100%;
 }
 
 .menu-list {
@@ -93,10 +107,16 @@ a {
   left: 0;
 }
 
+@media screen and (max-width: 767px) {
+  .cloned {
+    display: none !important;
+  }
+}
+
 .sticky {
   position: fixed;
-  width: 100%;
   left: 0;
+  right: 0;
   top: 0;
   z-index: 100;
   border-top: 0;
@@ -139,14 +159,14 @@ a {
 }
 
 .header-content {
-  margin-top: 160px;
+  margin-top: 20px;
 }
 
 .header-title {
   font-family: 'Playfair Display', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 80px;
+  font-size: 48px;
   max-width: 515px;
 }
 
@@ -208,7 +228,6 @@ a {
 
 .advantages-list-item-content {
   color: #E9E9E9;
-  font-size: 18px;
 }
 
 /* Description */
@@ -218,7 +237,6 @@ a {
 }
 
 .description-content {
-  font-size: 16px;
   color: #E9E9E9;
   margin-top: 30px;
 }
@@ -243,12 +261,8 @@ a {
 }
 
 .ceo .section-title {
-  text-align: left;
-  position: absolute;
+  /*position: absolute;*/
   margin: 0;
-  right: 0;
-  top: 40px;
-  z-index: 999;
 }
 
 .ceo-photo {
@@ -261,6 +275,10 @@ a {
 
 .ceo-content {
   padding-top: 80px;
+}
+
+.ceo-content p {
+  font-size: 16px;
 }
 
 /* Offers */
@@ -278,6 +296,10 @@ a {
   padding: 50px 30px;
   color: #E9E9E9;
   max-width: 550px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .offers-list-item-title {
@@ -330,7 +352,12 @@ a {
 
 .offers-list-item-action {
   padding: 15px 20px;
-  width: 200px;
+  width: 100%;
+  text-align: center;
+}
+
+.offers-list-item-action:last-child {
+  margin-top: 25px;
 }
 
 /* Specialty */
@@ -347,7 +374,6 @@ a {
 }
 
 .specialty-description {
-  font-size: 18px;
   margin-top: 20px;
   text-align: center;
 }
@@ -399,7 +425,6 @@ a {
 }
 
 .reviews-description {
-  font-size: 18px;
   color: #E9E9E9;
   text-align: center;
 }
@@ -454,7 +479,6 @@ a {
 }
 
 .reviews-text-slider-item-title, .reviews-text-slider-item-link {
-  font-size: 18px;
   font-weight: 600;
 }
 
@@ -491,7 +515,6 @@ a {
 }
 
 .subscribe-description {
-  font-size: 18px;
   text-align: center;
   margin-top: 30px;
 }
@@ -666,4 +689,138 @@ input + label {
 
 .footer-rights {
   margin-top: 60px;
+}
+
+@media screen and (min-width: 576px) {
+  p {
+    font-size: 14px;
+  }
+
+  /*.header-content {*/
+  /*  margin-top: 20px;*/
+  /*}*/
+
+  /*.header-title {*/
+  /*  font-size: 48px;*/
+  /*}*/
+
+  .header-description {
+    font-size: 14px;
+    margin-top: 15px;
+    gap: 15px;
+  }
+
+  .header-actions {
+    margin-top: 30px;
+  }
+
+  .header-action-link {
+    padding: 15px 20px;
+  }
+
+  .advantages {
+    padding: 80px 0;
+  }
+
+  .advantages-list-item:last-child {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  p {
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-size: 48px;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .menu-list {
+    font-size: 18px;
+  }
+
+  .header-content {
+    margin-top: 40px;
+  }
+
+  .header-title {
+    font-size: 64px;
+  }
+
+  .header-description {
+    font-size: 18px;
+    margin-top: 30px;
+    gap: 30px;
+  }
+
+  .header-actions {
+    margin-top: 50px;
+  }
+
+  .header-action-link {
+    padding: 20px 35px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .section-title {
+    font-size: 59px;
+  }
+
+  .menu-logo {
+    height: 100px;
+  }
+
+  .header-content {
+    margin-top: 30px;
+  }
+
+  .header-title {
+    font-size: 80px;
+  }
+
+  .advantages-list-item:last-child {
+    margin-top: 0;
+  }
+
+  /*.ceo .section-title {*/
+  /*  top: -40px;*/
+  /*}*/
+}
+
+@media screen and (min-width: 1200px) {
+  .menu-list {
+    font-size: 20px;
+  }
+
+  .header-content {
+    margin-top: 100px;
+  }
+
+  .ceo .section-title {
+    position: absolute;
+    top: 40px;
+    text-align: left;
+    right: 0;
+    z-index: 999;
+  }
+
+  .offers-list-item-action {
+    width: 200px;
+  }
+
+  .offers-list-item-action:last-child {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .header-content {
+    margin-top: 160px;
+  }
 }
