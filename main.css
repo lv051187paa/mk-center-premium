@@ -545,11 +545,15 @@ img {
 /* Submit */
 
 .submit {
-  padding: 160px 0;
+  padding: 40px 0;
 }
 
 .submit-form-wrapper {
-  margin-top: 70px;
+  margin-top: 30px;
+}
+
+.submit-form {
+  margin-bottom: 25px;
 }
 
 .input-container {
@@ -572,7 +576,7 @@ input + label {
   transform-origin: left top;
   user-select: none;
   transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),color 150ms cubic-bezier(0.4, 0, 0.2, 1), top 500ms;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .input-text {
@@ -601,7 +605,6 @@ input + label {
 
 .submit-form-info-action {
   display: block;
-  max-width: 250px;
   padding: 20px 0;
   width: 100%;
   margin-top: 50px;
@@ -612,10 +615,10 @@ input + label {
   display: inline-block;
   position: relative;
   color: #E9E9E9;
-  padding-left: 35px;
+  padding-left: 25px;
   /*margin-bottom: 12px;*/
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -623,7 +626,7 @@ input + label {
 }
 
 .radio-container:not(:first-child) {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 /* Hide the browser's default checkbox */
@@ -670,9 +673,14 @@ input + label {
   display: block;
 }
 
-.submit-form-info-radion-label {
+.submit-form-info-radio-container {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.submit-form-info-radio-label {
   color: rgba(233, 233, 233, 0.5);;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 /* Footer */
@@ -832,6 +840,22 @@ input + label {
     background: url("/images/subscribe/subscribe.png");
     padding: 160px 0 100px;
   }
+
+  .submit {
+    padding: 160px 0;
+  }
+
+  .submit-form-wrapper {
+    margin-top: 70px;
+  }
+
+  .submit-form {
+    margin-bottom: 0;
+  }
+
+  .submit-form-info-action {
+    max-width: 250px;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -858,6 +882,27 @@ input + label {
   /*.ceo .section-title {*/
   /*  top: -40px;*/
   /*}*/
+
+  .submit-form-info-radio-container {
+    margin-left: 60px;
+  }
+
+  .radio-container {
+    font-size: 18px;
+    padding-left: 35px;
+  }
+
+  .radio-container:not(:first-child) {
+    margin-left: 30px;
+  }
+
+  .submit-form-info-radio-label {
+    font-size: 18px;
+  }
+
+  input + label {
+    font-size: 18px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
