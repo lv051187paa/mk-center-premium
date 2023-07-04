@@ -107,6 +107,14 @@ img {
   left: 0;
 }
 
+.footer-logo, .footer-content {
+  text-align: center;
+}
+
+.footer-content {
+  margin-top:35px;
+}
+
 @media screen and (max-width: 767px) {
   .cloned {
     display: none !important;
@@ -196,7 +204,7 @@ img {
 
 .advantages {
   background: url("/images/advantages/bg_advantages.png");
-  padding: 160px 0 100px;
+  padding: 40px 0;
 }
 
 .advantages-list {
@@ -205,6 +213,7 @@ img {
 
 .advantages-list-item {
   text-align: center;
+  margin-top: 20px;
 }
 
 .advantages-list-item-title {
@@ -233,7 +242,7 @@ img {
 /* Description */
 
 .description {
-  padding: 100px 0 120px;
+  padding: 40px 0;
 }
 
 .description-content {
@@ -687,13 +696,13 @@ input + label {
 
 .footer {
   background: #101010;
-  padding: 100px 0;
+  padding: 40px 0;
   color: #E9E9E9;
 }
 
 .footer h5 {
   font-weight: 500;
-  font-size: 25px;
+  font-size: 18px;
   font-family: 'Playfair Display', 'Arial', sans-serif;
   margin-bottom: 30px;
 }
@@ -708,6 +717,7 @@ input + label {
 
 .footer-rights {
   margin-top: 60px;
+  text-align: center;
 }
 
 @media screen and (min-width: 576px) {
@@ -741,12 +751,20 @@ input + label {
     padding: 80px 0;
   }
 
+  .advantages-list-item {
+    margin-bottom: 0;
+  }
+
   .advantages-list-item:last-child {
     margin-top: 30px;
   }
 
   .subscribe-link {
     font-size: 45px;
+  }
+
+  .footer h5 {
+    font-size: 25px;
   }
 }
 
@@ -791,6 +809,14 @@ input + label {
 
   .offers-list .row {
     gap: 0;
+  }
+
+  .description {
+    padding: 100px 0 120px;
+  }
+
+  .advantages {
+    padding: 160px 0 100px;
   }
 
   .specialty-list {
@@ -855,6 +881,18 @@ input + label {
 
   .submit-form-info-action {
     max-width: 250px;
+  }
+
+  .footer-logo, .footer-content, .footer-rights {
+    text-align: left;
+  }
+
+  .footer-content {
+    margin-top: 0;
+  }
+
+  .footer {
+    padding: 100px 0;
   }
 }
 
