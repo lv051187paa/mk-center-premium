@@ -9,10 +9,27 @@ $('.header-slider').slick({
 });
 
 $(".reviews-text-slider").slick({
-    autoplay: true,
+    // autoplay: true,
     arrows: false,
-    // dots: true,
-    slidesToShow: 3,
+    dots: true,
+    slidesToShow: 1,
+    mobileFirst: true,
+    responsive: [
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 3,
+                // slidesToScroll: 1,
+                dots: false
+            }
+        },
+    ]
 })
 
 const inputs = document.querySelectorAll("input");
