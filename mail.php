@@ -1,12 +1,13 @@
 <?php
 // Multiple recipients
 $to = 'mkcenter.premium@gmail.com'; // note the comma
+
 // Subject
-$subject = 'Notification';
 $user_name = $_POST["name"];
 $user_phone_number = $_POST["phone"];
 $user_comments = $_POST["comments"];
-$massage_duration = isset($_POST["time"]) && $_POST["time"];
+$massage_duration = isset($_POST["time"]) ? $_POST["time"] : false;
+$subject = $massage_duration ? 'Нова заявка на масаж' : 'Передзвоніть, маю питання';
 
 if(!$massage_duration) {
     $message = "
