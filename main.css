@@ -633,7 +633,7 @@ input + label {
 
 .input-text:focus + label,
 .input-text.is-valid + label {
-  transform: translateY(-120%) scale(0.6);
+  transform: translateY(-90%) scale(0.6);
 }
 
 .submit-form-info-action {
@@ -719,6 +719,14 @@ input + label {
 .submit-form-info-radio-label {
   color: rgba(233, 233, 233, 0.5);;
   font-size: 14px;
+}
+
+form .error:not(input) {
+  color: red;
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  font-size: 10px;
 }
 
 /* Footer */
@@ -1154,6 +1162,7 @@ input + label {
   .radio-container {
     font-size: 18px;
     padding-left: 25px;
+    position: relative;
   }
 
   .radio-container:not(:first-child) {

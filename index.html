@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="vendors/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/css/slick-theme.css">
   <link rel="stylesheet" href="vendors/css/slick.css">
+  <link rel="stylesheet" href="vendors/css/jquery.toast.min.css">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -484,11 +485,11 @@
               <form method="post" id="order-form">
                 <div class="submit-form-info">
                   <div class="input-container">
-                    <input type="text" id="name" name="name" class="input-text" required/>
+                    <input type="text" id="name" name="name" class="input-text"/>
                     <label for="name">Ім'я</label>
                   </div>
                   <div class="input-container">
-                    <input type="tel" id="phone" name="phone" class="input-text" required/>
+                    <input type="tel" id="phone" name="phone" class="input-text"/>
                     <label for="phone">Номер телефону</label>
                   </div>
                   <div class="input-container">
@@ -496,22 +497,22 @@
                     <div class="submit-form-info-radio-container">
                       <label class="radio-container">
                         30 хв
-                        <input required type="radio" name="time">
+                        <input type="radio" name="time" value="30 хв">
                         <span class="checkmark"></span>
                       </label>
                       <label class="radio-container">
                         45 хв
-                        <input required type="radio" name="time">
+                        <input type="radio" name="time" value="45 хв">
                         <span class="checkmark"></span>
                       </label>
                       <label class="radio-container">
                         60 хв
-                        <input required type="radio" name="time">
+                        <input type="radio" name="time" value="60 хв">
                         <span class="checkmark"></span>
                       </label>
                       <label class="radio-container">
                         90 хв
-                        <input required type="radio" name="time">
+                        <input type="radio" name="time" value="90 хв">
                         <span class="checkmark"></span>
                       </label>
                     </div>
@@ -615,7 +616,10 @@
 </div>
   <script src="vendors/js/jquery.js"></script>
   <script src="vendors/js/bootstrap.min.js"></script>
+  <script src="vendors/js/jquery.validate.min.js"></script>
+  <script src="vendors/js/jquery.inputmask.min.js"></script>
   <script src="vendors/js/slick.min.js"></script>
+  <script src="vendors/js/jquery.toast.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

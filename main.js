@@ -38,7 +38,9 @@ inputs.forEach((input) => {
         if (event.target.value) {
             input.classList.add("is-valid");
         } else {
-            input.classList.remove("is-valid");
+            if(!input.inputmask) {
+                input.classList.remove("is-valid");
+            }
         }
     });
 });
@@ -100,26 +102,119 @@ btn.addEventListener('click', evt => {
 // Submit form
 
 // call-me-form
-$('#order-form').submit(function(e) {
-    e.preventDefault();
-    $.ajax({
-        type: "POST",
-        url: 'mail.php',
-        data: $(this).serialize(),
-        success: function(response)
-        {
-            var jsonData = JSON.parse(response);
 
-            // user is logged in successfully in the back-end
-            // let's redirect
-            if (jsonData.success == "1")
-            {
-                location.href = 'my_profile.php';
-            }
-            else
-            {
-                alert('Invalid Credentials!');
-            }
+jQuery.validator.addMethod("ua-phone", function(value, element) {
+    return this.optional(element) || /^[(]?[0-9]{3}[)]?\s?[0-9]{3}-[0-9]{2}-[0-9]{2}$/.test(value);
+}, "Ой, здається Ви допустили помилку в телефоні");
+
+const commonValidationOptions = {
+    errorElement: "div",
+    errorPlacement: function(error, element) {
+        error.appendTo( element.closest(".input-container") );
+    },
+}
+
+
+$("#order-form").validate({
+    rules: {
+        name: "required",
+        phone: {
+            required: true,
+            "ua-phone": true,
+        },
+        time: "required",
+    },
+    messages: {
+        name: {
+            required: "Вкажіть як Вас звати",
+        },
+        phone: {
+            required: "Ви забули вказати номер телефону",
+        },
+        time: {
+            required: "Оберіть тривалість масажу",
         }
-    });
+    },
+    ...commonValidationOptions,
+    submitHandler: function(form) {
+        $.ajax({
+            type: "POST",
+            url: 'mail.php',
+            data: $(form).serialize(),
+            success: function(response){
+                if (response === "success") {
+                    form.reset();
+                    $(".is-valid").removeClass("is-valid");
+                    $.toast({
+                        heading: 'Ви це зробили!',
+                        text: 'Вітаємо! Ваше повідомлення відправлено',
+                        showHideTransition: 'slide',
+                        icon: 'success'
+                    })
+                } else {
+                    $.toast({
+                        heading: 'Ой, щось пішло не так!',
+                        text: 'Але Ви все рівно можете залишити заявку на масаж за цим <a href="https://widget.client.appointer.com.ua/uk/centerpreviummk?fbclid=PAAaaBqtnK_qFSt-SzhXC24bGPRDLkt59OQ82fylYKTocUjbQHQeRi2XQ07TE_aem_AdVK3WirVoxq0hfmoM96UJt_umYVFLnjXae-38WyEbux_Fjs5ikYQggmBkniOPBx3kA">посиланням</a>',
+                        showHideTransition: 'fade',
+                        icon: 'error',
+                        hideAfter: 5000,
+                    })
+                }
+            }
+        });
+    }
+});
+
+
+$("#call-me-form").validate({
+    rules: {
+        name: "required",
+        phone: {
+            required: true,
+            "ua-phone": true,
+        },
+    },
+    messages: {
+        name: {
+            required: "Вкажіть як Вас звати",
+        },
+        phone: {
+            required: "Ви забули вказати номер телефону",
+        },
+    },
+    ...commonValidationOptions,
+    submitHandler: function(form) {
+        $.ajax({
+            type: "POST",
+            url: 'mail.php',
+            data: $(form).serialize(),
+            success: function (response) {
+                if (response === "success") {
+                    form.reset();
+                    $(".is-valid").removeClass("is-valid");
+                    $('#callMeModal').modal('hide')
+                    $.toast({
+                        heading: 'Ви це зробили!',
+                        text: 'Вітаємо! Найближчим часом ми Вам зателефонуємо',
+                        showHideTransition: 'slide',
+                        icon: 'success'
+                    })
+                } else {
+                    $.toast({
+                        heading: 'Ой, щось пішло не так!',
+                        text: 'Але Ви все рівно можете зв\'язатись з нами за цим <a href="https://instagram.com/mk_center_premium?igshid=MTIzZWMxMTBkOA==">посиланням в Instagram</a>',
+                        showHideTransition: 'fade',
+                        icon: 'error',
+                        hideAfter: 5000,
+                    })
+                }
+            }
+        })
+    }
+
+});
+
+$('input[type="tel"]').focus(function() {
+    $(this).addClass("is-valid")
+    $(this).inputmask('(099) 999-99-99')
 });
