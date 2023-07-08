@@ -53,4 +53,4 @@ $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 //$headers[] = 'Bcc: birthdaycheck@example.com';
 
 // Mail it
-mail($to, $subject, $message, implode("\r\n", $headers));
+echo mail($to, $subject, $message, implode("\r\n", $headers));

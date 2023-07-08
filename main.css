@@ -12,6 +12,7 @@ p, h1, h2, h3, h4, h5, h6, menu {
 
 button, button:active, button:focus {
   outline: none;
+  border: none;
 }
 
 ul, li {
@@ -866,6 +867,10 @@ input + label {
 }
 .menu-mobile.active .nav-tgl > span:before {
   transform: rotate(45deg);
+}
+
+.call-me-modal {
+  z-index: 9999999;
 }
 
 .call-me-modal .modal-content {
