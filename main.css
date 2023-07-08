@@ -17,6 +17,10 @@ ul, li {
   list-style: none;
 }
 
+p {
+  font-size: 14px;
+}
+
 a {
   text-decoration: 0;
 }
@@ -140,6 +144,7 @@ img {
 
 .header-slider-item {
   position: relative;
+  height: 500px;
 }
 
 .header-slider-item:after {
@@ -155,7 +160,9 @@ img {
 
 .header-slider img {
   width: 100%;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 .header-info {
@@ -192,12 +199,19 @@ img {
 .header-actions {
   margin-top: 50px;
   display: flex;
-  gap: 50px;
+  flex-direction: column;
 }
 
 .header-action-link {
   display: inline-block;
   padding: 20px 35px;
+  width: 300px;
+  text-align: center;
+  margin: auto;
+}
+
+.header-action-link:last-child {
+  margin-top: 15px;
 }
 
 /* Advantages */
@@ -256,7 +270,7 @@ img {
 
 /* CEO */
 .ceo {
-  padding: 100px 0 115px;
+  padding: 40px 0;
   /*background: url("images/ceo/bg_ceo.png");*/
   background-color: #E9E9E9;
   position: relative;
@@ -293,11 +307,11 @@ img {
 /* Offers */
 
 .offers {
-  padding: 160px 0 50px;
+  padding: 40px 0;
 }
 
 .offers-list {
-  margin-top: 70px;
+  margin-top: 20px;
 }
 
 .offers-list .row {
@@ -376,7 +390,7 @@ img {
 /* Specialty */
 
 .specialty {
-  padding: 50px 0 100px;
+  padding: 40px 0;
   color: #E9E9E9;
 }
 
@@ -441,7 +455,7 @@ img {
 /* Reviews */
 
 .reviews {
-  padding: 100px 0;
+  padding: 40px 0;
 }
 
 .reviews-description {
@@ -490,7 +504,8 @@ img {
 }
 
 .reviews-text-slider-item.slick-active {
-  background: linear-gradient(89.41deg, rgba(30, 30, 30, 0.6) 0.53%, #E9E9E9 99.53%), linear-gradient(89.41deg, rgba(30, 30, 30, 0.9) 0.53%, #E9E9E9 99.53%), #E9E9E9;
+  /*background: linear-gradient(89.41deg, rgba(30, 30, 30, 0.6) 0.53%, #E9E9E9 35.53%), linear-gradient(270deg, rgba(30, 30, 30, 0.9) 30%, #E9E9E9 0%);*/
+  background: linear-gradient(to right, rgba(77,77,77,1) 0%, rgba(255,255,255,0.88) 30%, rgba(255,255,255,0.73) 67%, rgba(77,77,77,0.6) 100%);
 }
 
 .reviews-text-slider-item-title, .reviews-text-slider-item-link {
@@ -713,13 +728,10 @@ input + label {
 .footer-rights {
   margin-top: 60px;
   text-align: center;
+  font-size: 12px;
 }
 
 @media screen and (min-width: 576px) {
-  p {
-    font-size: 14px;
-  }
-
   /*.header-content {*/
   /*  margin-top: 20px;*/
   /*}*/
@@ -727,6 +739,10 @@ input + label {
   /*.header-title {*/
   /*  font-size: 48px;*/
   /*}*/
+
+  .header-slider-item {
+    height: 400px;
+  }
 
   .header-description {
     font-size: 14px;
@@ -736,10 +752,18 @@ input + label {
 
   .header-actions {
     margin-top: 30px;
+    flex-direction: row;
+    gap: 50px;
   }
 
   .header-action-link {
     padding: 15px 20px;
+    margin: 0;
+    width: auto;
+  }
+
+  .header-action-link:last-child {
+    margin-top: 0;
   }
 
   .advantages {
@@ -778,6 +802,10 @@ input + label {
 
   .menu-list {
     font-size: 18px;
+  }
+
+  .header-slider-item {
+    height: 500px;
   }
 
   .header-content {
@@ -820,6 +848,26 @@ input + label {
 
   .reviews-text-slider-item.slick-active:last-child {
     background: linear-gradient(270deg, rgba(30, 30, 30, 0.9) 0%, #E9E9E9 100%), #E9E9E9;
+  }
+
+  .ceo {
+    padding: 100px 0 115px;
+  }
+
+  .offers {
+    padding: 160px 0 50px;
+  }
+
+  .offers-list {
+    margin-top: 70px;
+  }
+
+  .reviews {
+    padding: 100px 0;
+  }
+
+  .specialty {
+    padding: 50px 0 100px;
   }
 
   .specialty-list {
@@ -888,6 +936,7 @@ input + label {
 
   .footer-logo, .footer-content, .footer-rights {
     text-align: left;
+    font-size: 14px;
   }
 
   .footer-content {
@@ -910,6 +959,10 @@ input + label {
 
   .header-content {
     margin-top: 30px;
+  }
+
+  .header-slider-item {
+    height: auto;
   }
 
   .header-title {

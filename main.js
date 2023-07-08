@@ -9,7 +9,7 @@ $('.header-slider').slick({
 });
 
 $(".reviews-text-slider").slick({
-    // autoplay: true,
+    autoplay: true,
     arrows: false,
     dots: true,
     slidesToShow: 1,
