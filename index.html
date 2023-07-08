@@ -7,24 +7,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto+Slab&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="vendors/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="vendors/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/css/slick-theme.css">
   <link rel="stylesheet" href="vendors/css/slick.css">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
+  <nav class="mobile">
+    <div class="container d-md-none">
+      <div class="row">
+        <div class="col">
+          <div class="menu-mobile">
+            <button class="nav-tgl" type="button" aria-label="toggle menu">
+              <!-- this span just for the three dividers in the hamburger button--><span aria-hidden="true"></span>
+            </button>
+            <div class="nav">
+              <!-- I don't care about the menu elements here so I will hide them-->
+              <ul>
+                <li>
+                  <a class="menu-list-item" href="#about">ПРО НАС</a>
+                </li>
+                <li>
+                  <a class="menu-list-item" href="#price">ПОСЛУГИ ТА ПРАЙС</a>
+                </li>
+                <li>
+                  <a class="menu-list-item" href="#reviews">ВІДГУКИ</a>
+                </li>
+                <li>
+                  <a class="menu-list-item" href="#form">ЗАПИСАТИСЯ ЗАРАЗ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
   <nav class="menu">
     <div class="container">
       <div class="row align-items-center">
         <div class="col">
           <div class="menu-list">
-            <a class="menu-list-item" href="/">ПРО НАС</a>
-            <a class="menu-list-item" href="/">ПОСЛУГИ ТА ПРАЙС</a>
+            <a class="menu-list-item" href="#about">ПРО НАС</a>
+            <a class="menu-list-item" href="#price">ПОСЛУГИ ТА ПРАЙС</a>
             <div class="menu-logo">
               <img src="images/header/menu-logo.png" alt="MK Center Premium">
             </div>
-            <a class="menu-list-item" href="/">ВІДГУКИ</a>
-            <a class="menu-list-item" href="/">ЗАПИСАТИСЯ ЗАРАЗ</a>
+            <a class="menu-list-item" href="#reviews">ВІДГУКИ</a>
+            <a class="menu-list-item" href="#form">ЗАПИСАТИСЯ ЗАРАЗ</a>
           </div>
         </div>
       </div>
@@ -50,8 +80,8 @@
                 <p>Атмосфера в якій Ви перебуваєте в гармонії зі своїм тілом та розумом.</p>
               </div>
               <div class="header-actions">
-                <a class="header-action-link action-link action-yellow" href="/">Записатися зараз</a>
-                <a class="header-action-link action-link action-white" href="/">Замовити дзвінок</a>
+                <a class="header-action-link action-link action-yellow" href="#form">Записатися зараз</a>
+                <button class="header-action-link action-link action-white" data-toggle="modal" data-target="#callMeModal">Замовити дзвінок</button>
               </div>
             </div>
           </div>
@@ -207,8 +237,8 @@
                 </div>
               </div>
               <div class="offers-list-item-actions flex-column flex-xl-row">
-                <a href="/" class="offers-list-item-action action-link action-yellow">Записатися зараз</a>
-                <a href="/" class="offers-list-item-action action-link action-white">Замовити дзвінок</a>
+                <a href="#form" class="offers-list-item-action action-link action-yellow">Записатися зараз</a>
+                <button class="offers-list-item-action action-link action-white" data-toggle="modal" data-target="#callMeModal">Замовити дзвінок</button>
               </div>
             </div>
           </div>
@@ -249,8 +279,8 @@
                 </div>
               </div>
               <div class="offers-list-item-actions flex-column flex-xl-row">
-                <a href="/" class="offers-list-item-action action-link action-yellow">Записатися зараз</a>
-                <a href="/" class="offers-list-item-action action-link action-white">Замовити дзвінок</a>
+                <a href="#form" class="offers-list-item-action action-link action-yellow">Записатися зараз</a>
+                <button class="offers-list-item-action action-link action-white" data-toggle="modal" data-target="#callMeModal">Замовити дзвінок</button>
               </div>
             </div>
           </div>
@@ -309,8 +339,8 @@
       </div>
     </div>
   </section>
-<!--  <section class="reviews" id="reviews">-->
-<!--    <div class="container">-->
+  <section class="reviews" id="reviews">
+    <div class="container">
 <!--      <div class="row">-->
 <!--        <div class="col">-->
 <!--          <h3 class="section-title section-title__gradient">-->
@@ -325,7 +355,7 @@
 <!--          </p>-->
 <!--        </div>-->
 <!--      </div>-->
-<!--      <div class="reviews-video">-->
+      <div class="reviews-video">
 <!--        <div class="row">-->
 <!--          <div class="col-md-6">-->
 <!--            <div class="reviews-video-dummy">-->
@@ -354,67 +384,67 @@
 <!--              </p>-->
 <!--          </div>-->
 <!--        </div>-->
-<!--        <div class="reviews-text">-->
-<!--          <div class="row">-->
-<!--            <div class="col">-->
-<!--              <h3 class="section-title section-title__gradient">-->
-<!--                ПРО НАС ПИШУТЬ-->
-<!--              </h3>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="row">-->
-<!--            <div class="col">-->
-<!--              <div class="reviews-text-slider">-->
-<!--                <div class="reviews-text-slider-item">-->
-<!--                  <div class="reviews-text-slider-item-title">-->
-<!--                    Степан Неїжпапа-->
-<!--                  </div>-->
-<!--                  <div class="reviews-text-slider-item-content">-->
-<!--                    "Останнім часом відчував напругу в м'язах, тому вирішив спробувати цей центр масажу.-->
-<!--                    Не пошкодував, адже процедура була дивовижно ефективною!-->
-<!--                    Майстер Юліана дбайливо працював над проблемними зонами тіла і забезпечив глибоке розслаблення.-->
-<!--                    З задоволенням повторю!"-->
-<!--                  </div>-->
-<!--                  <div class="reviews-text-slider-item-link">-->
-<!--                    @stepanneyizhpapa-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="reviews-text-slider-item">-->
-<!--                  <div class="reviews-text-slider-item-title">-->
-<!--                    Марія Бенко-->
-<!--                  </div>-->
-<!--                  <div class="reviews-text-slider-item-content">-->
-<!--                    "Масажний салон MK premium - мій вихід у світ розслаблення та блаженства.-->
-<!--                    Персонал тут завжди вітає тебе посмішкою і створює неперевершену атмосферу.-->
-<!--                    Для мого сина навіть є приставка, не могла відірвати!-->
-<!--                    Професіоналізм масажистів, їхній ніжний дотик і вміння розслабити кожну клітину тіла - це справжнє мистецтво.-->
-<!--                    Залишилась в захваті!"-->
-<!--                  </div>-->
-<!--                  <div class="reviews-text-slider-item-link">-->
-<!--                    @mariyabenko-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="reviews-text-slider-item">-->
-<!--                  <div class="reviews-text-slider-item-title">-->
-<!--                    Надія Недайвода-->
-<!--                  </div>-->
-<!--                  <div class="reviews-text-slider-item-content">-->
-<!--                    "Масажний салон MK Center - ідеальне місце для відпочинку та відновлення.-->
-<!--                    Я отримала незабутні враження від майстра Наталі, яка майстерно впоралась з моїми проблемними ділянками тіла.-->
-<!--                    Весь процес був дуже комфортним та розслаблюючим.-->
-<!--                    Дуже задоволена!"-->
-<!--                  </div>-->
-<!--                  <div class="reviews-text-slider-item-link">-->
-<!--                    @nadiya nedayvoda-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </section>-->
+        <div class="reviews-text">
+          <div class="row">
+            <div class="col">
+              <h3 class="section-title section-title__gradient">
+                ПРО НАС ПИШУТЬ
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="reviews-text-slider">
+                <div class="reviews-text-slider-item">
+                  <div class="reviews-text-slider-item-title">
+                    Степан Неїжпапа
+                  </div>
+                  <div class="reviews-text-slider-item-content">
+                    "Останнім часом відчував напругу в м'язах, тому вирішив спробувати цей центр масажу.
+                    Не пошкодував, адже процедура була дивовижно ефективною!
+                    Майстер Юліана дбайливо працював над проблемними зонами тіла і забезпечив глибоке розслаблення.
+                    З задоволенням повторю!"
+                  </div>
+                  <div class="reviews-text-slider-item-link">
+                    @stepanneyizhpapa
+                  </div>
+                </div>
+                <div class="reviews-text-slider-item">
+                  <div class="reviews-text-slider-item-title">
+                    Марія Бенко
+                  </div>
+                  <div class="reviews-text-slider-item-content">
+                    "Масажний салон MK premium - мій вихід у світ розслаблення та блаженства.
+                    Персонал тут завжди вітає тебе посмішкою і створює неперевершену атмосферу.
+                    Для мого сина навіть є приставка, не могла відірвати!
+                    Професіоналізм масажистів, їхній ніжний дотик і вміння розслабити кожну клітину тіла - це справжнє мистецтво.
+                    Залишилась в захваті!"
+                  </div>
+                  <div class="reviews-text-slider-item-link">
+                    @mariyabenko
+                  </div>
+                </div>
+                <div class="reviews-text-slider-item">
+                  <div class="reviews-text-slider-item-title">
+                    Надія Недайвода
+                  </div>
+                  <div class="reviews-text-slider-item-content">
+                    "Масажний салон MK Center - ідеальне місце для відпочинку та відновлення.
+                    Я отримала незабутні враження від майстра Наталі, яка майстерно впоралась з моїми проблемними ділянками тіла.
+                    Весь процес був дуже комфортним та розслаблюючим.
+                    Дуже задоволена!"
+                  </div>
+                  <div class="reviews-text-slider-item-link">
+                    @nadiya nedayvoda
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="subscribe">
     <div class="container">
       <div class="row">
@@ -466,22 +496,22 @@
                     <div class="submit-form-info-radio-container">
                       <label class="radio-container">
                         30
-                        <input type="radio" name="time">
+                        <input required type="radio" name="time">
                         <span class="checkmark"></span>
                       </label>
                       <label class="radio-container">
                         45
-                        <input type="radio" name="time">
+                        <input required type="radio" name="time">
                         <span class="checkmark"></span>
                       </label>
                       <label class="radio-container">
                         60
-                        <input type="radio" name="time">
+                        <input required type="radio" name="time">
                         <span class="checkmark"></span>
                       </label>
                       <label class="radio-container">
                         90
-                        <input type="radio" name="time">
+                        <input required type="radio" name="time">
                         <span class="checkmark"></span>
                       </label>
                     </div>
@@ -549,7 +579,42 @@
       </div>
     </div>
   </footer>
+  <!--  Modal-->
+  <div class="modal fade call-me-modal" id="callMeModal" tabindex="-1" aria-labelledby="callMeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Замовте дзвінок</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="submit-form">
+              <form action="/">
+                <div class="submit-form-info">
+                  <div class="input-container">
+                    <input type="text" id="name" name="name" class="input-text" required/>
+                    <label for="name">Ім'я</label>
+                  </div>
+                  <div class="input-container">
+                    <input type="tel" id="phone" name="phone" class="input-text" required/>
+                    <label for="phone">Номер телефону</label>
+                  </div>
+                  <div class="input-container">
+                    <input type="text" id="comments" name="comments" class="input-text"/>
+                    <label for="comments">Коментар</label>
+                  </div>
+                </div>
+                <button type="submit" class="submit-form-info-action action-yellow">Надіслати</button>
+              </form>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
   <script src="vendors/js/jquery.js"></script>
+  <script src="vendors/js/bootstrap.min.js"></script>
   <script src="vendors/js/slick.min.js"></script>
   <script src="main.js"></script>
 </body>

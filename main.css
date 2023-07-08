@@ -8,7 +8,10 @@ body {
 p, h1, h2, h3, h4, h5, h6, menu {
   margin: 0;
   padding: 0;
-  /*color: #E9E9E9;*/
+}
+
+button, button:active, button:focus {
+  outline: none;
 }
 
 ul, li {
@@ -22,11 +25,20 @@ p {
 }
 
 a {
-  text-decoration: 0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
   max-width: 100%;
+}
+
+.scrollable {
+  overflow: hidden;
 }
 
 .section-title {
@@ -52,6 +64,7 @@ img {
 
 .action-link {
   color: #1E1E1E;
+  cursor: pointer;
 }
 
 .action-white {
@@ -107,7 +120,7 @@ img {
   transition: .6s;
   position: fixed;
   top: -50px;
-  z-index: 500;
+  z-index: 9999;
   left: 0;
 }
 
@@ -469,7 +482,7 @@ img {
 }
 
 .reviews-video {
-  margin-top: 100px;
+  /*!*margin-top: 100px;*! Uncomment after videos will be provided*/
 }
 
 .reviews-video-dummy {
@@ -483,8 +496,8 @@ img {
 }
 
 .reviews-text {
-  padding-top: 250px;
-  margin-top: 35px;
+  /*!*padding-top: 250px;*! Uncomment after videos will be provided*/
+  /*margin-top: 35px;*/
   background: url("/images/reviews/reviews.png") no-repeat center top;
   /*background-position-y: ;*/
 }
@@ -602,9 +615,9 @@ input + label {
   width: 100%;
   height: 100%;
   background: transparent;
-  caret-color: rgba(233, 233, 233, 0.5);
+  caret-color: #E9E9E9;
   border: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: #E9E9E9;
   padding: 10px 0;
   font-size: 16px;
 }
@@ -627,6 +640,7 @@ input + label {
   padding: 20px 0;
   width: 100%;
   margin-top: 50px;
+  font-family: 'Roboto Slab', 'Arial', sans-serif;
 }
 
 /* Customize the label (the container) */
@@ -731,6 +745,143 @@ input + label {
   font-size: 12px;
 }
 
+/* Mobile hamburger */
+
+.nav ul {
+  z-index: -1;
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .3s;
+}
+
+.menu-mobile .menu-list-item {
+  color: #E9E9E9;
+  font-size: 26px;
+}
+
+.menu-mobile ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.menu-mobile.active ul {
+  display: block;
+  top: 50%;
+  transition: .3s;
+  transition-delay: .3s;
+  z-index: 999;
+}
+
+.menu-mobile ul li {
+  text-align: center;
+}
+
+.nav-tgl {
+  display: inline-block;
+  cursor: pointer;
+  position: fixed;
+  z-index: 100;
+  right: 30px;
+  top: 30px;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.24);
+  line-height: 0.6;
+  text-align: center;
+}
+.nav-tgl > span {
+  display: inline-block;
+  position: relative;
+  height: 2px;
+  width: 34px;
+  border-radius: 1px;
+  background: #293335;
+  vertical-align: middle;
+}
+.nav-tgl > span:before, .nav-tgl > span:after {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  height: 2px;
+  border-radius: 1px;
+  background: #293335;
+  transition: all 200ms;
+}
+.nav-tgl > span:before {
+  top: -11px;
+  left: 3px;
+  width: 28px;
+}
+.nav-tgl > span:after {
+  top: 11px;
+  left: 6px;
+  width: 22px;
+}
+.nav-tgl:focus {
+  outline: none;
+}
+.nav-tgl:hover > span:after, .nav-tgl:hover > span:before {
+  width: 34px;
+  left: 0;
+}
+
+.nav:before {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.8);
+  transition: all 500ms ease-in-out;
+  clip-path: circle(30px at calc(100% - 65px) 65px);
+  visibility: hidden;
+}
+
+.menu-mobile.active .nav:before {
+  visibility: visible;
+  clip-path: circle(100%);
+}
+.menu-mobile.active .nav-tgl > span {
+  height: 0;
+}
+.menu-mobile.active .nav-tgl > span:after, .menu-mobile.active .nav-tgl > span:before {
+  top: 0px;
+  left: 0;
+  width: 34px;
+}
+.menu-mobile.active .nav-tgl > span:after {
+  transform: rotate(-45deg);
+}
+.menu-mobile.active .nav-tgl > span:before {
+  transform: rotate(45deg);
+}
+
+.call-me-modal .modal-content {
+  background: #1E1E1E;
+  padding: 15px;
+}
+
+.call-me-modal .modal-header * {
+  font-family: 'Roboto Slab', 'Arial', sans-serif;
+  color: #E9E9E9;
+}
+
+.call-me-modal .submit-form-info-action {
+  padding: 5px 10px;
+  width: 200px;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media screen and (min-width: 576px) {
   /*.header-content {*/
   /*  margin-top: 20px;*/
@@ -828,6 +979,7 @@ input + label {
 
   .header-action-link {
     padding: 20px 35px;
+    font-size: 20px;
   }
 
   .offers-list .row {
@@ -932,6 +1084,7 @@ input + label {
 
   .submit-form-info-action {
     max-width: 250px;
+    font-size: 20px;
   }
 
   .footer-logo, .footer-content, .footer-rights {

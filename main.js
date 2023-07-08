@@ -63,18 +63,36 @@ function stickIt() {
         const widthOrgElement = orgElement.css('width');
         const leftOrgElement = coordsOrgElement.left;
         $('.cloned').css('left',leftOrgElement+'px').css('top',-50).css('width',widthOrgElement).show();
+
+        $(window).resize(function () {
+            const widthOrgElement = orgElement.css('width');
+            $('.cloned').css('width',widthOrgElement);
+        })
     }
 
     if ($(window).scrollTop() > originalElementTop + 60) {
-        // scrolled past the original position; now only show the cloned, sticky element.
-
-        // Cloned element should always have same left position and width as original element.
-
         $('.cloned').css('top', 0);
         $('.original').css('visibility','hidden');
     } else {
-        // not scrolled past the menu; only show the original menu.
         $('.cloned').hide();
         $('.original').css('visibility','visible');
     }
 }
+
+const menu = document.querySelector('.menu-mobile');
+
+$('a[href^="#"]').click(function () {
+    menu.classList.remove('active');
+    $('body').removeClass("scrollable")
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+
+    return false;
+});
+
+const btn = menu.querySelector('.nav-tgl');
+btn.addEventListener('click', evt => {
+    menu.classList.toggle('active');
+    $('body').toggleClass("scrollable")
+})
