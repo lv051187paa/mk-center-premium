@@ -689,6 +689,10 @@ input + label {
   background-color: transparent;
 }
 
+.radio-container input:invalid ~ .checkmark {
+  border-color: red;
+}
+
 /* When the checkbox is checked, add a blue background */
 .radio-container input:checked ~ .checkmark {
   background-color: #E9E9E9;
@@ -1096,6 +1100,14 @@ input + label {
     margin-top: 0;
   }
 
+  .submit-form-info-radio-container {
+    margin-left: 5px;
+  }
+
+  .radio-container:not(:first-child) {
+    margin-left: 3px;
+  }
+
   .footer {
     padding: 100px 0;
   }
@@ -1131,16 +1143,16 @@ input + label {
   /*}*/
 
   .submit-form-info-radio-container {
-    margin-left: 60px;
+    margin-left: 10px;
   }
 
   .radio-container {
     font-size: 18px;
-    padding-left: 35px;
+    padding-left: 25px;
   }
 
   .radio-container:not(:first-child) {
-    margin-left: 30px;
+    margin-left: 10px;
   }
 
   .submit-form-info-radio-label {
@@ -1175,6 +1187,14 @@ input + label {
 
   .offers-list-item-action:last-child {
     margin: 0;
+  }
+
+  .submit-form-info-radio-container {
+    margin-left: 40px;
+  }
+
+  .radio-container:not(:first-child) {
+    margin-left: 30px;
   }
 }
 
