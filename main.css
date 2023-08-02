@@ -15,6 +15,10 @@ button, button:active, button:focus {
   border: none;
 }
 
+textarea {
+  resize: none;
+}
+
 ul, li {
   margin: 0;
   padding: 0;
@@ -486,6 +490,17 @@ img {
   /*!*margin-top: 100px;*! Uncomment after videos will be provided*/
 }
 
+.reviews-form-toggle {
+  padding: 15px 20px;
+  /*color: #1E1E1E;*/
+  width: 100%;
+  margin-top: 20px;
+}
+
+.reviews-form {
+  margin-top: 20px;
+}
+
 .reviews-video-dummy {
   height: 310px;
   margin: 0 auto;
@@ -599,10 +614,10 @@ img {
   margin-bottom: 15px;
 }
 
-input + label {
+input + label,
+textarea + label {
   display: block;
   position: absolute;
-  top: 50%;
   transform: translateY(-50%);
   left: 0;
   color: rgba(233, 233, 233, 0.5);
@@ -610,6 +625,14 @@ input + label {
   user-select: none;
   transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),color 150ms cubic-bezier(0.4, 0, 0.2, 1), top 500ms;
   font-size: 14px;
+}
+
+input + label {
+  top: 50%;
+}
+
+textarea + label {
+  top: 10px;
 }
 
 .input-text {
@@ -1173,7 +1196,8 @@ form .error:not(input) {
     font-size: 18px;
   }
 
-  input + label {
+  input + label,
+  textarea + label {
     font-size: 18px;
   }
 }
@@ -1189,7 +1213,7 @@ form .error:not(input) {
 
   .ceo .section-title {
     position: absolute;
-    top: 40px;
+    top: 0;
     text-align: left;
     right: 0;
     z-index: 999;
