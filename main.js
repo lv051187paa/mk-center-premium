@@ -139,7 +139,7 @@ $("#order-form").validate({
     submitHandler: function(form) {
         $.ajax({
             type: "POST",
-            url: 'mail.php',
+            url: 'mail/send',
             data: $(form).serialize(),
             success: function(response){
                 if (response === "success") {

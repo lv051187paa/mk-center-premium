@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+
+    RewriteBase /
+    RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
+    RewriteRule .* - [L,R=404]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ([a-z]+)/(.*) index.php?controller=$1&action=$2 [L,QSA]
+
+</IfModule>
