@@ -1,11 +1,13 @@
 <?php
 $matches = [];
-echo '<pre>';
-print_r(preg_match("/$1\/$2/", $_SERVER["REQUEST_URI"], $matches));
 
-print_r($_GET);
-echo '</pre>';
+$controller = $_GET['controller'];
+$action = $_GET['action'];
 
-//return require "index.html";
+$controller = ucfirst($controller);
 
-echo "testing";
+require "controllers/".$controller."Controller.php";
+
+$controller_instance = new $controller;
+
+call_user_func_array([$controller_instance, $action], []);

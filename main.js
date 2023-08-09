@@ -139,7 +139,7 @@ $("#order-form").validate({
     submitHandler: function(form) {
         $.ajax({
             type: "POST",
-            url: 'mail/send',
+            url: 'mail/sendMassageRequest',
             data: $(form).serialize(),
             success: function(response){
                 if (response === "success") {
@@ -186,7 +186,7 @@ $("#call-me-form").validate({
     submitHandler: function(form) {
         $.ajax({
             type: "POST",
-            url: 'mail.php',
+            url: 'mail/sendCallRequest',
             data: $(form).serialize(),
             success: function (response) {
                 if (response === "success") {

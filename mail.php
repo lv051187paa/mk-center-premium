@@ -1,6 +1,4 @@
 <?php
-$pdo = require 'db/Connection.php';
-var_dump($pdo);
 // Multiple recipients
 $to = 'mkcenter.premium@gmail.com'; // note the comma
 
