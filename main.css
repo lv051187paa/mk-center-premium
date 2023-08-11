@@ -632,7 +632,7 @@ input + label {
 }
 
 textarea + label {
-  top: 10px;
+  top: 20px;
 }
 
 .input-text {
@@ -744,7 +744,7 @@ textarea + label {
   font-size: 14px;
 }
 
-form .error:not(input) {
+form .error:not(input):not(textarea) {
   color: red;
   position: absolute;
   bottom: -18px;

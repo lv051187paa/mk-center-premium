@@ -48,7 +48,7 @@ $('.header-slider').slick({
     speed: 2000
 });
 
-const inputs = document.querySelectorAll("input");
+const inputs = document.querySelectorAll("input, textarea");
 inputs.forEach((input) => {
     input.addEventListener("blur", (event) => {
         if (event.target.value) {
@@ -250,7 +250,10 @@ $.ajax({
 $("#review-form").validate({
     rules: {
         "review-name": "required",
-        "review-comments": "required",
+        "review-comments": {
+            required: true,
+            maxlength: 100,
+        },
         "review-email": {
             required: true,
             email: true
@@ -262,6 +265,7 @@ $("#review-form").validate({
         },
         "review-comments": {
             required: "Залиште свій відгук",
+            maxlength: $.validator.format("Максимальна довжина повідомлення {0} символів")
         },
         "review-email": {
             required: "Ви забули вказати електронну пошту",
