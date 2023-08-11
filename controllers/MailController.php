@@ -1,20 +1,22 @@
 <?php
 
-class Mail
+class MailController
 {
     private string $to;
+
     public function sendMassageRequest()
     {
-        $this->to = 'mkcenter.premium@gmail.com'; // note the comma
+        Request::method("POST", function () {
+            $this->to = 'mkcenter.premium@gmail.com'; // note the comma
 
 // Subject
-        $user_name = $_POST["name"];
-        $user_phone_number = $_POST["phone"];
-        $user_comments = $_POST["comments"];
-        $massage_duration = $_POST["time"];
-        $subject = 'Нова заявка на масаж';
+            $user_name = $_POST["name"];
+            $user_phone_number = $_POST["phone"];
+            $user_comments = $_POST["comments"];
+            $massage_duration = $_POST["time"];
+            $subject = 'Нова заявка на масаж';
 
-        $message = "
+            $message = "
         <html>
             <head>
               <title>Нова заявка на масаж</title>
@@ -33,7 +35,7 @@ class Mail
 
 // To send HTML mail, the Content-type header must be set
 //$headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
 // Additional headers
 //$headers[] = 'To: Mary <mary@example.com>, Kelly <kelly@example.com>';
@@ -42,21 +44,23 @@ class Mail
 //$headers[] = 'Bcc: birthdaycheck@example.com';
 
 // Mail it
-        $result = mail($this->to, $subject, $message, implode("\r\n", $headers));
+            $result = mail($this->to, $subject, $message, implode("\r\n", $headers));
 
-        echo boolval($result) ? "success" : "failed";
+            $result ? Response::success(200, "Message sent") : Response::failed();
+        });
     }
 
     public function sendCallRequest()
     {
-        $this->to = 'mkcenter.premium@gmail.com'; // note the comma
+        Request::method("POST", function () {
+            $this->to = 'mkcenter.premium@gmail.com'; // note the comma
 
-        $user_name = $_POST["name"];
-        $user_phone_number = $_POST["phone"];
-        $user_comments = $_POST["comments"];
-        $subject = 'Передзвоніть, маю питання';
+            $user_name = $_POST["name"];
+            $user_phone_number = $_POST["phone"];
+            $user_comments = $_POST["comments"];
+            $subject = 'Передзвоніть, маю питання';
 
-        $message = "
+            $message = "
         <html>
             <head>
               <title>Передзвоніть мені</title>
@@ -70,10 +74,11 @@ class Mail
         </html>
     ";
 
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
-        $result = mail($this->to, $subject, $message, implode("\r\n", $headers));
+            $result = mail($this->to, $subject, $message, implode("\r\n", $headers));
 
-        echo boolval($result) ? "success" : "failed";
+            $result ? Response::success(200, "Message sent") : Response::failed();
+        });
     }
 }

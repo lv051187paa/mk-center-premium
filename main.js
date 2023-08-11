@@ -1,3 +1,43 @@
+const getReviewItemTemplate = (name, comment, email) => `
+    <div class="reviews-text-slider-item">
+      <div class="reviews-text-slider-item-title">
+        ${name}
+      </div>
+      <div class="reviews-text-slider-item-content">
+        "${comment}"
+      </div>
+      <div class="reviews-text-slider-item-link">
+        ${email}
+      </div>
+    </div>
+`
+
+const runReviewsSlider = (shouldShowDots) => {
+    $(".reviews-text-slider").slick({
+        autoplay: true,
+        arrows: false,
+        dots: true,
+        slidesToShow: 1,
+        mobileFirst: true,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                    dots: shouldShowDots
+                }
+            },
+        ]
+    })
+}
+
+
 $('.header-slider').slick({
     autoplay: true,
     arrows: false,
@@ -7,30 +47,6 @@ $('.header-slider').slick({
     pauseOnHover: false,
     speed: 2000
 });
-
-$(".reviews-text-slider").slick({
-    autoplay: true,
-    arrows: false,
-    dots: true,
-    slidesToShow: 1,
-    mobileFirst: true,
-    responsive: [
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 3,
-                // slidesToScroll: 1,
-                dots: false
-            }
-        },
-    ]
-})
 
 const inputs = document.querySelectorAll("input");
 inputs.forEach((input) => {
@@ -142,7 +158,7 @@ $("#order-form").validate({
             url: 'mail/sendMassageRequest',
             data: $(form).serialize(),
             success: function(response){
-                if (response === "success") {
+                if (response.success) {
                     form.reset();
                     $(".is-valid").removeClass("is-valid");
                     $.toast({
@@ -189,7 +205,7 @@ $("#call-me-form").validate({
             url: 'mail/sendCallRequest',
             data: $(form).serialize(),
             success: function (response) {
-                if (response === "success") {
+                if (response.success) {
                     form.reset();
                     $(".is-valid").removeClass("is-valid");
                     $('#callMeModal').modal('hide')
@@ -217,4 +233,76 @@ $("#call-me-form").validate({
 $('input[type="tel"]').focus(function() {
     $(this).addClass("is-valid")
     $(this).inputmask('(099) 999-99-99')
+});
+
+$.ajax({
+    type: "GET",
+    url: 'review/index',
+    // data: $(form).serialize(),
+    success: function(response){
+        const reviews = response.data.map(({ name, email, review_text }) => getReviewItemTemplate(name, review_text, email));
+
+        $('.reviews-text-slider').html(reviews);
+        runReviewsSlider(response.data.length > 3);
+    }
+});
+
+$("#review-form").validate({
+    rules: {
+        "review-name": "required",
+        "review-comments": "required",
+        "review-email": {
+            required: true,
+            email: true
+        },
+    },
+    messages: {
+        "review-name": {
+            required: "Вкажіть як Вас звати",
+        },
+        "review-comments": {
+            required: "Залиште свій відгук",
+        },
+        "review-email": {
+            required: "Ви забули вказати електронну пошту",
+            email: "Ви невірно вказали електронну адресу",
+        },
+    },
+    ...commonValidationOptions,
+    submitHandler: function(form) {
+        $.ajax({
+            type: "POST",
+            url: 'review/store',
+            data: $(form).serialize(),
+            success: function (response) {
+                console.log(response)
+                if (response.success) {
+                    const reviews = response.data.map(({ name, email, review_text }) => getReviewItemTemplate(name, review_text, email));
+
+                    $('.reviews-text-slider').slick('unslick');
+                    $('.reviews-text-slider').html(reviews);
+                    runReviewsSlider(response.data.length > 3);
+                    // $(".reviews-text-slider").slick('refresh');
+                    form.reset();
+                    $(".is-valid").removeClass("is-valid");
+
+                    $.toast({
+                        heading: 'Ваш відгук збережено!',
+                        text: 'Вітаємо! Тепер Ваш відгук доданий',
+                        showHideTransition: 'slide',
+                        icon: 'success'
+                    })
+                } else {
+                    $.toast({
+                        heading: 'Ой, щось пішло не так!',
+                        text: 'Але Ви все рівно можете зв\'язатись з нами за цим <a href="https://instagram.com/mk_center_premium?igshid=MTIzZWMxMTBkOA==">посиланням в Instagram</a>',
+                        showHideTransition: 'fade',
+                        icon: 'error',
+                        hideAfter: 5000,
+                    })
+                }
+            }
+        })
+    }
+
 });
