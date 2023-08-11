@@ -8,9 +8,9 @@
  */
 // Database params
 const DB_HOST = 'localhost';
-const DB_USER = 'root';
-const DB_PASS = '';
-const DB_NAME = 'mk_center';
+const DB_USER = 'mkcenter_boss';
+const DB_PASS = 'SPIE;8,*WVxS';
+const DB_NAME = 'mkcenter_premium';
 
 class Database
 {
