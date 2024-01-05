@@ -1,13 +1,20 @@
 <IfModule mod_rewrite.c>
-
     RewriteEngine On
 
-    RewriteBase /
+    # Redirect to www
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Force HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Block direct access to PHP files
     RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
     RewriteRule .* - [L,R=404]
 
+    # Your existing RewriteRule
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ([a-z]+)/(.*) index.php?controller=$1&action=$2 [L,QSA]
-
+    RewriteRule ^([a-z]+)/(.*)$ index.php?controller=$1&action=$2 [L,QSA]
 </IfModule>
