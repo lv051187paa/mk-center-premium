@@ -383,6 +383,10 @@ img {
   margin-bottom: 15px;
 }
 
+.offers-list-item-content--description {
+  font-size: 14px;
+}
+
 .offers-list-item-customization {
   text-align: center;
   margin-top: 35px;
@@ -920,6 +924,10 @@ form .error:not(input):not(textarea) {
   font-size: 16px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.education-modal-content {
+  color: #ffffff;
 }
 
 @media screen and (min-width: 576px) {

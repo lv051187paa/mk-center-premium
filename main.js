@@ -37,6 +37,13 @@ const runReviewsSlider = (shouldShowDots) => {
     })
 }
 
+const setCurrentYear = () => {
+    const date = new Date();
+    $('#year').text(date.getFullYear());
+}
+
+setCurrentYear();
+$('#educationModal').modal('show');
 
 $('.header-slider').slick({
     autoplay: true,
@@ -114,10 +121,6 @@ btn.addEventListener('click', evt => {
     menu.classList.toggle('active');
     $('body').toggleClass("scrollable")
 })
-
-// Submit form
-
-// call-me-form
 
 jQuery.validator.addMethod("ua-phone", function(value, element) {
     return this.optional(element) || /^[(]?[0-9]{3}[)]?\s?[0-9]{3}-[0-9]{2}-[0-9]{2}$/.test(value);
@@ -209,6 +212,54 @@ $("#call-me-form").validate({
                     form.reset();
                     $(".is-valid").removeClass("is-valid");
                     $('#callMeModal').modal('hide')
+                    $.toast({
+                        heading: 'Ви це зробили!',
+                        text: 'Вітаємо! Найближчим часом ми Вам зателефонуємо',
+                        showHideTransition: 'slide',
+                        icon: 'success'
+                    })
+                } else {
+                    $.toast({
+                        heading: 'Ой, щось пішло не так!',
+                        text: 'Але Ви все рівно можете зв\'язатись з нами за цим <a href="https://instagram.com/mk_center_premium?igshid=MTIzZWMxMTBkOA==">посиланням в Instagram</a>',
+                        showHideTransition: 'fade',
+                        icon: 'error',
+                        hideAfter: 5000,
+                    })
+                }
+            }
+        })
+    }
+
+});
+
+$("#education-form").validate({
+    rules: {
+        name: "required",
+        phone: {
+            required: true,
+            "ua-phone": true,
+        },
+    },
+    messages: {
+        name: {
+            required: "Вкажіть як Вас звати",
+        },
+        phone: {
+            required: "Ви забули вказати номер телефону",
+        },
+    },
+    ...commonValidationOptions,
+    submitHandler: function(form) {
+        $.ajax({
+            type: "POST",
+            url: 'mail/sendEducationRequest',
+            data: $(form).serialize(),
+            success: function (response) {
+                if (response.success) {
+                    form.reset();
+                    $(".is-valid").removeClass("is-valid");
+                    $('#educationModal').modal('hide')
                     $.toast({
                         heading: 'Ви це зробили!',
                         text: 'Вітаємо! Найближчим часом ми Вам зателефонуємо',

@@ -81,4 +81,38 @@ class MailController
             $result ? Response::success(200, "Message sent") : Response::failed();
         });
     }
+
+    public function sendEducationRequest()
+    {
+        Request::method("POST", function () {
+            $this->to = 'mkcenter.premium@gmail.com'; // note the comma
+
+            $user_name = $_POST["name"];
+            $user_phone_number = $_POST["phone"];
+            $user_comments = $_POST["comments"];
+            $subject = 'Передзвоніть, хочу навчатись';
+
+            $message = "
+        <html>
+            <head>
+              <title>Передзвоніть мені</title>
+            </head>
+            <body>
+              <p>Хочу навчатись, передзвоніть будь ласка за номером $user_phone_number</p>
+              <p>Мене звуть $user_name</p>
+              <br>
+              $user_comments
+            </body>
+        </html>
+    ";
+
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+            $result = mail($this->to, $subject, $message, implode("\r\n", $headers));
+
+            $result ? Response::success(200, "Message sent") : Response::failed();
+        });
+    }
 }
+
+
