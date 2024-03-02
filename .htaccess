@@ -3,11 +3,11 @@
 
     # Redirect to www
     RewriteCond %{HTTP_HOST} !^www\. [NC]
-    RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Force HTTPS
-#    RewriteCond %{HTTPS} off
-#    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Block direct access to PHP files
     RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
